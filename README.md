@@ -10,6 +10,8 @@
 
 ## FOO-KG for Poaching Prediction 
 
+The figure below illustrates a framework that is a complete predictive system that combines RDF data extraction and deep learning to enable precise prediction. It includes a Keras sequential neural network for predicting the geo-location of elephants and a GNN model for predicting poaching activities using a subset of the knowledge graph. The performance of the models was evaluated using the Root Mean Square Error (RMSE) metric, and accurate predictions were transformed back to their original RDF format. This integration of semantic web data and machine learning allows for more accurate and informed predictions.
+
 ![image](https://lucid.app/publicSegments/view/52ed0585-a337-482a-8e30-12473953eb82/image.png)
 
 
