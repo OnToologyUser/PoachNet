@@ -5,7 +5,7 @@
 
 
 
-## The Forest Observatory Ontology Knowledge Graph (FOO-KG) for Poaching Prediction 
+## FOO-KG for Poaching Prediction 
 
 ![image](https://lucid.app/publicSegments/view/52ed0585-a337-482a-8e30-12473953eb82/image.png)
 
