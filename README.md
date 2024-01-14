@@ -5,32 +5,32 @@
 ![image](https://lucid.app/publicSegments/view/5eec075d-5ace-4ec0-8165-85ea232301a2/image.png)
 
 # FOO-KG Structure
-FOO-KG
- |-- FOO-KG_data  # FOO-KG_data
- |    |-- Meta_data
- |    |    |-- GPS # meta data for elephant GPS Tracking Sensor         
- |    |    |-- Soil  # meta data for Soil Sensor Data 
- |    |    |-- Vegetation  # meta data for Vegetation Sensor Data     
- |    |-- Processed_data  # 
- |    |    |-- GPS
- |    |    |-- Soil
- |    |    |-- Vegetation 
- |    |-- FOO-KG  # constructed wildlife knowledge graph
- |    |    |-- GPS
- |    |    |    |-- GPS.csv  
- |    |    |    |-- GPS.py    
- |    |    |    |-- GPS.rdf
- |    |    |    |-- GPS.rml
- |    |    |-- Soil
- |    |    |    |-- Soil.csv   
- |    |    |    |-- Soil.py    
- |    |    |    |-- Soil.rdf
- |    |    |    |-- Soil.rml 
- |    |    |-- Vegetation
- |    |    |    |-- Veg.csv   
- |    |    |    |-- Veg.py    
- |    |    |    |-- Veg.rdf
- |    |    |    |-- Veg.rml
+ FOO-KG
+  |-- FOO-KG_data  # FOO-KG_data
+  |    |-- Meta_data
+  |    |    |-- GPS # meta data for elephant GPS Tracking Sensor         
+  |    |    |-- Soil  # meta data for Soil Sensor Data 
+  |    |    |-- Vegetation  # meta data for Vegetation Sensor Data     
+  |    |-- Processed_data  # 
+  |    |    |-- GPS
+  |    |    |-- Soil
+  |    |    |-- Vegetation 
+  |    |-- FOO-KG  # constructed wildlife knowledge graph
+  |    |    |-- GPS
+  |    |    |    |-- GPS.csv  
+  |    |    |    |-- GPS.py    
+  |    |    |    |-- GPS.rdf
+  |    |    |    |-- GPS.rml
+  |    |    |-- Soil
+  |    |    |    |-- Soil.csv   
+  |    |    |    |-- Soil.py    
+  |    |    |    |-- Soil.rdf
+  |    |    |    |-- Soil.rml 
+  |    |    |-- Vegetation
+  |    |    |    |-- Veg.csv   
+  |    |    |    |-- Veg.py    
+  |    |    |    |-- Veg.rdf
+  |    |    |    |-- Veg.rml
 
 
 ## FOO-KG for Poaching Prediction 
