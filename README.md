@@ -8,10 +8,8 @@
  FOO-KG
  
   |-- FOO-KG_data  # FOO-KG_data
-  
   |    |-- Meta_data
-  
-  |    |    |-- GPS # meta data for elephant GPS Tracking Sensor         
+  |    |    |-- GPS # meta data for elephant GPS Tracking Sensor   
   |    |    |-- Soil  # meta data for Soil Sensor Data 
   |    |    |-- Vegetation  # meta data for Vegetation Sensor Data     
   |    |-- Processed_data  # 
