@@ -108,7 +108,7 @@ To effectively use this notebook, you will need:
 - Ensure all dependencies are correctly installed and that the notebook is compatible with your system configuration.
 
 ---
-Based on a deeper analysis of the "FOO-KG (b)" notebook, here is a more detailed description of its contents and functionalities:
+ "FOO-KG (b)" notebook's detailed description of its contents and functionalities:
 
 1. Data Encoding and Preparation: After loading the RDF data, the notebook encodes subjects, predicates, and objects from the RDF triples into numerical formats. This is achieved by creating dictionaries for encoding each element and then preparing input tensors for each of the encoded elements (subjects, predicates, objects).
 
