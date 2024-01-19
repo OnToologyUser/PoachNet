@@ -8,7 +8,7 @@
 ## FOO-KG (a) Jupyter Notebook
  #Introduction
 
-This Jupyter notebook, titled "FOO-KG (a)", is designed for processing and analyzing RDF (Resource Description Framework) data. The notebook focuses on loading RDF data, querying it using SPARQL, extracting features and labels, and preparing the data for further analysis or predictive modeling. This notebook is particularly useful for those working with geospatial RDF data and looking to perform data analysis or machine learning tasks.
+This Jupyter notebook, titled "FOO-KG (a)", is designed for processing and analysing RDF (Resource Description Framework) data. The notebook focuses on loading RDF data, querying it using SPARQL, extracting features and labels, and preparing the data for further analysis or predictive modelling. This notebook is particularly useful for those working with geospatial RDF data and looking to predict elephants' geolocation.
 
 ## Requirements
 
@@ -54,54 +54,85 @@ To run this notebook, you will need the following:
 - Ensure that all dependencies are correctly installed and imported in the notebook.
 
 
-
 ## FOO-KG for Poaching Prediction 
 
 The figure below illustrates a framework that is a complete predictive system that combines RDF data extraction and deep learning to enable precise prediction. It includes a Keras sequential neural network for predicting the geo-location of elephants and a GNN model for predicting poaching activities using a subset of the knowledge graph. The performance of the models was evaluated using the Root Mean Square Error (RMSE) metric, and accurate predictions were transformed back to their original RDF format. This integration of semantic web data and machine learning allows for more accurate and informed predictions.
 
 ![image](https://lucid.app/publicSegments/view/52ed0585-a337-482a-8e30-12473953eb82/image.png)
 
- |    |-- construct_UrbanKG_NYC.py # UrbanKG constructuion
- |    |-- preprocess_meta_data_nyc.py # data preprocessing
- |-- UrbanKG_Embedding_Model  # KG embedding
- |    |-- data
- |    |    |-- NYC
- |    |    |-- CHI 
- |    |-- dataset
- |    |-- models
- |    |-- optimizer
- |    |-- utils
- |    |-- run.py # KG embedding 
- |    |-- requirements.txt
- |-- USTP_data  # USTP_data
- |    |-- Meta_data
- |    |    |-- NYC  # meta data for New York
- |    |    |    |-- Flow_taxi    
- |    |    |    |-- Flow_bike     
- |    |    |    |-- Flow_human     
- |    |    |    |-- Event_crime     
- |    |    |    |-- Event_311  
- |    |    |-- CHI  # meta data for Chicago
- |    |-- Processed_data  # 
- |    |    |-- NYC
- |    |    |-- CHI 
- |    |-- USTP  # constructed urban spatiotemporal prediction dataset
- |    |    |-- NYC
- |    |    |    |-- NYCTaxi20200406  
- |    |    |    |-- NYCBike20200406     
- |    |    |    |-- NYCHuman20200406
- |    |    |    |-- NYCCrime20210112   
- |    |    |    |-- NYC311Service20210112  
- |    |    |-- CHI 
- |    |-- utils  # constructed urban spatiotemporal prediction dataset
- |    |-- preprocess_meta_data_nyc # USTP data preprocessing
- |    |-- construct_USTP_Pointflow_NYC.py # USTP flow dataset construction
- |    |-- construct_USTP_Event_NYC.py # USTP event dataset construction
- |-- USTP_Model  # USTP_model
- |    |-- libcity
- |    |-- log
- |    |-- raw_data
- |    |-- run.py # urban spatiotemporal prediction 
- |    |-- requirements.txt
- |-- README.md
+The Jupyter notebook titled "FOO-KG (b)" seems to be focused on processing RDF data and possibly building a machine learning model using that data. Here's a brief overview of the first few cells:
 
+1. **Importing Libraries and Dependencies**: The first cell imports several libraries such as `numpy`, `pandas`, `rdflib` for RDF data handling, `networkx`, and `tensorflow` for machine learning, as well as other dependencies related to data processing and model building.
+
+2. **Loading RDF Data**: The second cell loads RDF data from a file named "Graph.ttl" using `rdflib`.
+
+3. **Data Preparation**: The third cell iterates over triples in the RDF graph, extracting subjects, predicates, and objects, and stores them in a pandas DataFrame. It also saves this DataFrame to a CSV file named 'rdf_data.csv'.
+
+Based on this information, I'll draft a README file explaining how to use this notebook. The README will include sections like Introduction, Requirements, Setup, Usage, and Additional Notes. Let's proceed with creating the README for "FOO-KG (b)".
+
+## FOO-KG (b) Jupyter Notebook
+
+---
+
+## Introduction
+
+The "FOO-KG (b)" Jupyter notebook is designed for advanced data processing and analysis of RDF (Resource Description Framework) data, potentially leading to the development of machine learning models. The primary focus of this notebook is on loading RDF data, transforming it into a structured format, and preparing it for analysis or machine learning tasks. This tool is particularly useful for those working with complex RDF datasets and interested in applying data science and machine learning techniques.
+
+## Requirements
+
+To effectively use this notebook, you will need:
+
+- Python 3.x
+- Jupyter Notebook or Jupyter Lab environment
+- Required Python libraries:
+  - `rdflib` for RDF data manipulation
+  - `numpy` and `pandas` for data handling
+  - `tensorflow` for building and training machine learning models
+  - `networkx` for network analysis (if applicable)
+  - `sklearn` for model evaluation and preprocessing
+  - Additional dependencies as specified in the notebook
+
+## Setup
+
+1. Python and Jupyter Installation: Ensure Python 3.x is installed along with Jupyter Notebook or Jupyter Lab.
+
+2. Acquire the Notebook: Download or clone the "FOO-KG (b)" notebook to your local environment.
+
+3. Library Installation: Use pip to install the required libraries. Example command:
+
+   ```
+   pip install rdflib numpy pandas tensorflow networkx sklearn
+   ```
+
+4. RDF Data File: Make sure you have the RDF data file (like "Graph.ttl") in the correct format as expected by the notebook.
+
+## Usage
+
+1. Open the Notebook: Launch the "FOO-KG (b)" notebook in your Jupyter environment.
+
+2. Sequential Execution: Run each cell in order, starting from the top. The first cells deal with importing necessary libraries and setting up the environment.
+
+3. Load and Process RDF Data: The notebook includes cells to load RDF data and transform it into a structured DataFrame.
+
+4. Data Analysis and Model Development: Follow the instructions in the notebook to preprocess the data and develop and train machine learning models.
+
+## Additional Notes
+
+- Familiarity with RDF data structures, Python programming, and basic machine learning concepts is beneficial for using this notebook.
+- You might need to adjust the RDF data loading path and the structure of SPARQL queries based on your specific dataset.
+- Ensure all dependencies are correctly installed and that the notebook is compatible with your system configuration.
+
+---
+Based on a deeper analysis of the "FOO-KG (b)" notebook, here is a more detailed description of its contents and functionalities:
+
+1. Data Encoding and Preparation: After loading the RDF data, the notebook encodes subjects, predicates, and objects from the RDF triples into numerical formats. This is achieved by creating dictionaries for encoding each element and then preparing input tensors for each of the encoded elements (subjects, predicates, objects).
+
+2. Graph Neural Network Model Definition: The notebook defines a custom Graph Neural Network (GNN) class named `GraphNetwork`, which is a TensorFlow model. This model includes embedding layers for nodes and relations, a graph convolution layer, and a dense output layer. The model is intended for tasks like node classification or link prediction in the RDF graph.
+
+3. Model Instantiation and Compilation: The notebook then instantiates and compiles the `GraphNetwork` model, specifying parameters such as the number of nodes, number of relations, and embedding dimensions. The model is compiled with the Adam optimizer and binary cross-entropy loss function, indicating a potential binary classification task.
+
+4. Model Training: The model is trained on the prepared dataset, with input tensors corresponding to subjects, predicates, and objects, and a binary label. The training process involves several epochs, and the performance is evaluated on a validation set.
+
+5. Additional Processing and Analysis: The notebook likely includes further cells for analyzing the model's performance, such as plotting training and validation metrics, evaluating test set performance, or performing additional data analyses.
+
+Given this detailed overview, the README for "FOO-KG (b)" can be enhanced to provide a comprehensive guide for users on how to navigate and utilize the notebook. This guide will cover the steps from data loading and preprocessing through model definition and training to performance evaluation and analysis.
