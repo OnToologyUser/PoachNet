@@ -7,9 +7,9 @@
 # FOO-KG Structure
  FOO-KG
  
-  |-- FOO-KG_data  # FOO-KG_data \\
+  |-- FOO-KG_data  # FOO-KG_data 
   
-  |    |-- Meta_data \\
+  |    |-- Meta_data 
   
   |    |    |-- GPS # meta data for elephant GPS Tracking Sensor   
   |    |    |-- Soil  # meta data for Soil Sensor Data 
