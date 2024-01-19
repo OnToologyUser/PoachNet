@@ -59,19 +59,9 @@ The figure below illustrates a framework that is a complete predictive system th
 
 ![image](https://lucid.app/publicSegments/view/52ed0585-a337-482a-8e30-12473953eb82/image.png)
 
-The Jupyter notebook titled "FOO-KG (b)" seems to be focused on processing RDF data and possibly building a machine learning model using that data. Here's a brief overview of the first few cells:
-
-1. **Importing Libraries and Dependencies**: The first cell imports several libraries such as `numpy`, `pandas`, `rdflib` for RDF data handling, `networkx`, and `tensorflow` for machine learning, as well as other dependencies related to data processing and model building.
-
-2. **Loading RDF Data**: The second cell loads RDF data from a file named "Graph.ttl" using `rdflib`.
-
-3. **Data Preparation**: The third cell iterates over triples in the RDF graph, extracting subjects, predicates, and objects, and stores them in a pandas DataFrame. It also saves this DataFrame to a CSV file named 'rdf_data.csv'.
-
-Based on this information, I'll draft a README file explaining how to use this notebook. The README will include sections like Introduction, Requirements, Setup, Usage, and Additional Notes. Let's proceed with creating the README for "FOO-KG (b)".
-
 ## FOO-KG (b) Jupyter Notebook
 
-The "FOO-KG (b)" Jupyter notebook is designed for advanced data processing and analysis of RDF (Resource Description Framework) data, potentially leading to the development of machine learning models. The primary focus of this notebook is on loading RDF data, transforming it into a structured format, and preparing it for analysis or machine learning tasks. This tool is particularly useful for those working with complex RDF datasets and interested in applying data science and machine learning techniques.
+The "FOO-KG (b)" Jupyter Notebook is designed for advanced data processing and analysis of RDF (Resource Description Framework) data, potentially leading to the development of deep learning models. The primary focus of this notebook is on loading RDF data, transforming it into a structured format, and preparing it for analysis and deep learning prediction tasks. This tool is particularly useful for those working with complex RDF datasets and interested in applying data science and deep learning techniques.
 
 ## Requirements
 
