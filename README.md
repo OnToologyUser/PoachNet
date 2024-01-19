@@ -6,7 +6,6 @@
 
 
 ## FOO-KG (a) Jupyter Notebook
- #Introduction
 
 This Jupyter notebook, titled "FOO-KG (a)", is designed for processing and analysing RDF (Resource Description Framework) data. The notebook focuses on loading RDF data, querying it using SPARQL, extracting features and labels, and preparing the data for further analysis or predictive modelling. This notebook is particularly useful for those working with geospatial RDF data and looking to predict elephants' geolocation.
 
@@ -72,10 +71,6 @@ Based on this information, I'll draft a README file explaining how to use this n
 
 ## FOO-KG (b) Jupyter Notebook
 
----
-
-## Introduction
-
 The "FOO-KG (b)" Jupyter notebook is designed for advanced data processing and analysis of RDF (Resource Description Framework) data, potentially leading to the development of machine learning models. The primary focus of this notebook is on loading RDF data, transforming it into a structured format, and preparing it for analysis or machine learning tasks. This tool is particularly useful for those working with complex RDF datasets and interested in applying data science and machine learning techniques.
 
 ## Requirements
@@ -133,6 +128,5 @@ Based on a deeper analysis of the "FOO-KG (b)" notebook, here is a more detailed
 
 4. Model Training: The model is trained on the prepared dataset, with input tensors corresponding to subjects, predicates, and objects, and a binary label. The training process involves several epochs, and the performance is evaluated on a validation set.
 
-5. Additional Processing and Analysis: The notebook likely includes further cells for analyzing the model's performance, such as plotting training and validation metrics, evaluating test set performance, or performing additional data analyses.
+5. Additional Processing and Analysis: The notebook includes further cells for analyzing the model's performance, such as plotting training and validation metrics, evaluating test set performance, or performing additional data analyses.
 
-Given this detailed overview, the README for "FOO-KG (b)" can be enhanced to provide a comprehensive guide for users on how to navigate and utilize the notebook. This guide will cover the steps from data loading and preprocessing through model definition and training to performance evaluation and analysis.
