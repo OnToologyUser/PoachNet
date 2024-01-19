@@ -1,0 +1,29 @@
+prefixes:
+ foo: "https://w3id.org/def/foo#"
+ rdf: "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xsd: "http://www.w3.org/2001/XMLSchema#"
+ sosa: "http://www.w3.org/ns/sosa/"
+ schema: "http://schema.org/"
+ skos: "http://www.w3.org/2004/02/skos/core#"
+
+mappings:
+  Observation:
+    sources:
+      - ['lianas.csv~csv']
+    s: https://w3id.org/def/foo#$(Identifier)
+    po:
+      - [a, sosa:Observation]
+      - [foo:Site_name, $(Site_name)]
+      - [foo:Plot_no, $(Plot_no)]
+      - [foo:Site_plot_code, $(Site_plot_code)]
+      - [foo:Date, $(Date)]
+      - [foo:Tree_individual_no, $(Tree_individual_no)]
+      - [foo:Tree_ID, $(Tree_ID)]
+      - [foo:Tree_dbh_cm, $(Tree_dbh_cm)]
+      - [foo:Tree_height_m, $(Tree_height_m)]
+      - [foo:Tree_N_lianas, $(Tree_N_lianas)]
+      - [foo:Liana_dbh_cm, $(Liana_dbh_cm)]
+      - [foo:Tree_notes, $(Tree_notes)]
+      - [foo:Subplot_radius_m, $(Subplot_radius_m)]
+
+      
