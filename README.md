@@ -4,36 +4,55 @@
 
 ![image](https://lucid.app/publicSegments/view/5eec075d-5ace-4ec0-8165-85ea232301a2/image.png)
 
-# FOO-KG Structure
- FOO-KG
- 
-  |-- FOO-KG_data  # FOO-KG_data 
-  
-  |    |-- Meta_data 
-  
-  |    |    |-- GPS # meta data for elephant GPS Tracking Sensor   
-  |    |    |-- Soil  # meta data for Soil Sensor Data 
-  |    |    |-- Vegetation  # meta data for Vegetation Sensor Data     
-  |    |-- Processed_data  # 
-  |    |    |-- GPS
-  |    |    |-- Soil
-  |    |    |-- Vegetation 
-  |    |-- FOO-KG  # constructed wildlife knowledge graph
-  |    |    |-- GPS
-  |    |    |    |-- GPS.csv  
-  |    |    |    |-- GPS.py    
-  |    |    |    |-- GPS.rdf
-  |    |    |    |-- GPS.rml
-  |    |    |-- Soil
-  |    |    |    |-- Soil.csv   
-  |    |    |    |-- Soil.py    
-  |    |    |    |-- Soil.rdf
-  |    |    |    |-- Soil.rml 
-  |    |    |-- Vegetation
-  |    |    |    |-- Veg.csv   
-  |    |    |    |-- Veg.py    
-  |    |    |    |-- Veg.rdf
-  |    |    |    |-- Veg.rml
+
+## FOO-KG (a) Jupyter Notebook
+ #Introduction
+
+This Jupyter notebook, titled "FOO-KG (a)", is designed for processing and analyzing RDF (Resource Description Framework) data. The notebook focuses on loading RDF data, querying it using SPARQL, extracting features and labels, and preparing the data for further analysis or predictive modeling. This notebook is particularly useful for those working with geospatial RDF data and looking to perform data analysis or machine learning tasks.
+
+## Requirements
+
+To run this notebook, you will need the following:
+
+- Python 3.x
+- Jupyter Notebook or Jupyter Lab environment
+- The following Python libraries:
+  - `rdflib` for handling RDF data
+  - `numpy` and `pandas` for data manipulation
+  - `tensorflow` and `sklearn` for machine learning tasks
+  - `networkx` for network analysis (if applicable)
+  - Other dependencies as required by the code (refer to the first cell of the notebook for all imports)
+
+## Setup
+
+1. **Install Python and Jupyter**: Ensure you have Python 3.x installed along with Jupyter Notebook or Jupyter Lab.
+
+2. **Clone/Download the Notebook**: Obtain a copy of the "FOO-KG (a)" notebook onto your local machine.
+
+3. **Install Required Libraries**: You can install the required libraries using pip. For example:
+
+   ```
+   pip install rdflib numpy pandas tensorflow sklearn networkx
+   ```
+
+4. **Download RDF Data**: Ensure you have the RDF data file (e.g., "SeriKG.rdf") available and in the correct format as expected by the notebook.
+
+## Usage
+
+1. **Open the Notebook**: Open the "FOO-KG (a)" notebook in your Jupyter environment.
+
+2. **Run Each Cell**: Execute each cell sequentially. The initial cells import necessary libraries and define functions.
+
+3. **Load and Query RDF Data**: The notebook will load RDF data from a file and perform a SPARQL query to extract relevant features and labels.
+
+4. **Data Analysis and Modeling**: Follow the subsequent cells for data preprocessing, analysis, and potentially building machine learning models.
+
+## Additional Notes
+
+- The notebook assumes some familiarity with RDF data, SPARQL queries, and Python programming.
+- You may need to modify the SPARQL query and data paths according to your specific RDF dataset.
+- Ensure that all dependencies are correctly installed and imported in the notebook.
+
 
 
 ## FOO-KG for Poaching Prediction 
