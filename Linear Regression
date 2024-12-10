@@ -1,0 +1,42 @@
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+import numpy as np
+import pandas as pd
+
+# Load the uploaded CSV file
+file_path = 'Seri.csv'
+data = pd.read_csv(file_path)
+
+# Display the first few rows of the dataset to understand its structure
+data.head()
+
+# Define features and targets
+features = ['Temperature', 'Distance', 'Cov', 'HDOP']
+target_lat = 'lat'
+target_long = 'long'
+
+# Split data into training and testing sets (80% train, 20% test)
+X = data[features]
+y_lat = data[target_lat]
+y_long = data[target_long]
+
+X_train, X_test, y_lat_train, y_lat_test, y_long_train, y_long_test = train_test_split(
+    X, y_lat, y_long, test_size=0.2, random_state=42
+)
+
+# Train linear regression models
+model_lat = LinearRegression()
+model_long = LinearRegression()
+
+model_lat.fit(X_train, y_lat_train)
+model_long.fit(X_train, y_long_train)
+
+# Predict and evaluate using RMSE
+lat_predictions = model_lat.predict(X_test)
+long_predictions = model_long.predict(X_test)
+
+rmse_lat = np.sqrt(mean_squared_error(y_lat_test, lat_predictions))
+rmse_long = np.sqrt(mean_squared_error(y_long_test, long_predictions))
+
+rmse_lat, rmse_long
