@@ -1,0 +1,39 @@
+from statsmodels.tsa.api import VAR
+Import pandas as pd
+
+# Load the uploaded CSV file
+file_path = '/mnt/data/Seri.csv'
+data = pd.read_csv(file_path)
+
+# Display the first few rows of the dataset to understand its structure
+data.head()
+data.describe() 
+# Select features and target for VAR
+data_var = data[['lat', 'long', 'Temperature', 'Distance', 'Cov', 'HDOP']].dropna()
+
+# Train-test split for time series (80% train, 20% test)
+train_size = int(0.8 * len(data_var))
+train_data_var = data_var.iloc[:train_size]
+test_data_var = data_var.iloc[train_size:]
+
+# Train the VAR model
+var_model = VAR(train_data_var)
+var_results = var_model.fit(maxlags=5)  # Choosing a lag of 5 for the model
+
+# Forecasting
+forecast_steps = len(test_data_var)
+forecast = var_results.forecast(train_data_var.values[-var_results.k_ar:], steps=forecast_steps)
+
+# Extracting predicted lat and long
+forecast_df = pd.DataFrame(forecast, columns=data_var.columns)
+predicted_lat = forecast_df['lat']
+predicted_long = forecast_df['long']
+
+# Calculate RMSE for VAR model
+actual_lat = test_data_var['lat'].values
+actual_long = test_data_var['long'].values
+
+rmse_var_lat = np.sqrt(mean_squared_error(actual_lat, predicted_lat))
+rmse_var_long = np.sqrt(mean_squared_error(actual_long, predicted_long))
+
+rmse_var_lat, rmse_var_long
