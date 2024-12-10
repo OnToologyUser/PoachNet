@@ -1,0 +1,29 @@
+from sklearn.preprocessing import PolynomialFeatures
+
+# Apply Polynomial Regression
+degree = 2  # Using degree 2 for polynomial features
+poly = PolynomialFeatures(degree=degree)
+
+# Transform features to polynomial
+X_poly = poly.fit_transform(X)
+
+# Split transformed data into training and testing sets
+X_poly_train, X_poly_test, y_lat_train, y_lat_test, y_long_train, y_long_test = train_test_split(
+    X_poly, y_lat, y_long, test_size=0.2, random_state=42
+)
+
+# Train polynomial regression models
+poly_model_lat = LinearRegression()
+poly_model_long = LinearRegression()
+
+poly_model_lat.fit(X_poly_train, y_lat_train)
+poly_model_long.fit(X_poly_train, y_long_train)
+
+# Predict and evaluate using RMSE for polynomial regression
+poly_lat_predictions = poly_model_lat.predict(X_poly_test)
+poly_long_predictions = poly_model_long.predict(X_poly_test)
+
+poly_rmse_lat = np.sqrt(mean_squared_error(y_lat_test, poly_lat_predictions))
+poly_rmse_long = np.sqrt(mean_squared_error(y_long_test, poly_long_predictions))
+
+poly_rmse_lat, poly_rmse_long
