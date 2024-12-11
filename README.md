@@ -45,78 +45,11 @@ To run this notebook, you will need the following:
 3. **Load and Query RDF Data**: The notebook will load RDF data from a file and perform a SPARQL query to extract relevant features and labels.
 
 4. **Data Analysis and Modeling**: Follow the subsequent cells for data preprocessing, analysis, and potentially building machine learning models.
+   
+5. The dataset is available upon request.
 
 ## Additional Notes
 
 - The notebook assumes some familiarity with RDF data, SPARQL queries, and Python programming.
 - You may need to modify the SPARQL query and data paths according to your specific RDF dataset.
 - Ensure that all dependencies are correctly installed and imported in the notebook.
-
-
-## FOO-KG for Poaching Prediction 
-
-The figure below illustrates a framework that is a complete predictive system that combines RDF data extraction and deep learning to enable precise prediction. It includes a Keras sequential neural network for predicting the geo-location of elephants and a GNN model for predicting poaching activities using a subset of the knowledge graph. The performance of the models was evaluated using the Root Mean Square Error (RMSE) metric, and accurate predictions were transformed back to their original RDF format. This integration of semantic web data and machine learning allows for more accurate and informed predictions.
-
-![image](https://lucid.app/publicSegments/view/52ed0585-a337-482a-8e30-12473953eb82/image.png)
-
-## FOO-KG (b) Jupyter Notebook
-
-The "FOO-KG (b)" Jupyter Notebook is designed for advanced data processing and analysis of RDF (Resource Description Framework) data, potentially leading to the development of deep learning models. The primary focus of this notebook is on loading RDF data, transforming it into a structured format, and preparing it for analysis and deep learning prediction tasks. This tool is particularly useful for those working with complex RDF datasets and interested in applying data science and deep learning techniques.
-
-## Requirements
-
-To effectively use this notebook, you will need:
-
-- Python 3.x
-- Jupyter Notebook or Jupyter Lab environment
-- Required Python libraries:
-  - `rdflib` for RDF data manipulation
-  - `numpy` and `pandas` for data handling
-  - `tensorflow` for building and training machine learning models
-  - `networkx` for network analysis (if applicable)
-  - `sklearn` for model evaluation and preprocessing
-  - Additional dependencies as specified in the notebook
-
-## Setup
-
-1. Python and Jupyter Installation: Ensure Python 3.x is installed along with Jupyter Notebook or Jupyter Lab.
-
-2. Acquire the Notebook: Download or clone the "FOO-KG (b)" notebook to your local environment.
-
-3. Library Installation: Use pip to install the required libraries. Example command:
-
-   ```
-   pip install rdflib numpy pandas tensorflow networkx sklearn
-   ```
-
-4. RDF Data File: Make sure you have the RDF data file (like "Graph.ttl") in the correct format as expected by the notebook.
-
-## Usage
-
-1. Open the Notebook: Launch the "FOO-KG (b)" notebook in your Jupyter environment.
-
-2. Sequential Execution: Run each cell in order, starting from the top. The first cells deal with importing necessary libraries and setting up the environment.
-
-3. Load and Process RDF Data: The notebook includes cells to load RDF data and transform it into a structured DataFrame.
-
-4. Data Analysis and Model Development: Follow the instructions in the notebook to preprocess the data and develop and train machine learning models.
-
-## Additional Notes
-
-- Familiarity with RDF data structures, Python programming, and basic machine learning concepts is beneficial for using this notebook.
-- You might need to adjust the RDF data loading path and the structure of SPARQL queries based on your specific dataset.
-- Ensure all dependencies are correctly installed and that the notebook is compatible with your system configuration.
-
----
- "FOO-KG (b)" notebook's detailed description of its contents and functionalities:
-
-1. Data Encoding and Preparation: After loading the RDF data, the notebook encodes subjects, predicates, and objects from the RDF triples into numerical formats. This is achieved by creating dictionaries for encoding each element and then preparing input tensors for each of the encoded elements (subjects, predicates, objects).
-
-2. Graph Neural Network Model Definition: The notebook defines a custom Graph Neural Network (GNN) class named `GraphNetwork`, which is a TensorFlow model. This model includes embedding layers for nodes and relations, a graph convolution layer, and a dense output layer. The model is intended for tasks like node classification or link prediction in the RDF graph.
-
-3. Model Instantiation and Compilation: The notebook then instantiates and compiles the `GraphNetwork` model, specifying parameters such as the number of nodes, number of relations, and embedding dimensions. The model is compiled with the Adam optimizer and binary cross-entropy loss function, indicating a potential binary classification task.
-
-4. Model Training: The model is trained on the prepared dataset, with input tensors corresponding to subjects, predicates, and objects, and a binary label. The training process involves several epochs, and the performance is evaluated on a validation set.
-
-5. Additional Processing and Analysis: The notebook includes further cells for analyzing the model's performance, such as plotting training and validation metrics, evaluating test set performance, or performing additional data analyses.
-
