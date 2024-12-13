@@ -13,4 +13,4 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 ![image](https://lucid.app/publicSegments/view/36bde2cd-eac4-4036-82cb-953286d75515/image.png)
 
-# Evaluation code: [Click here]()
+# Evaluation code: [Click here](https://github.com/Naeima/PoachNet/blob/bb4af1077d988d686796be60e0680154e02c244c/Linear_Regression%2C_Polynomial_and_VAR.ipynb)
