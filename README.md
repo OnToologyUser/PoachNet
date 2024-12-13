@@ -35,11 +35,11 @@ To run this notebook, you will need the following:
 
 3. **Install Required Libraries**: You can install the required libraries using pip. For example:
 
-   ```
+
    pip install rdflib numpy pandas tensorflow sklearn networkx
    ```
 
-4. **Download RDF Data**: Ensure you have the RDF data file (e.g., "SeriKG.rdf") available and in the correct format as expected by the notebook.
+4. **Download RDF Data**: Ensure you have the RDF data file (e.g., "Seri.ttl") available and in the correct format as expected by the notebook.
 
 ## Usage
 
