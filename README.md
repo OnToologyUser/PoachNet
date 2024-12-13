@@ -23,6 +23,6 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 # Query poaching 
 
-![image]()
+![image](https://github.com/Naeima/PoachNet/blob/7b7ceca4a5b0ee82ea61bceb73722cb108e78452/SelectPoaching.png)
 
 # Evaluation code: [Click here](https://github.com/Naeima/PoachNet/blob/bb4af1077d988d686796be60e0680154e02c244c/Linear_Regression%2C_Polynomial_and_VAR.ipynb)
