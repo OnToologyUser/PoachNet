@@ -7,7 +7,7 @@
 
 ## PoachNet 
 
-![image](https://lucid.app/publicSegments/view/faed13af-c512-4aa8-b569-ce3932396a2d/image.png)
+![image](https://github.com/Naeima/PoachNet/blob/6416298db13ed86751840e0a68ded5f63cf3179c/PoachNet.png)
 
 This Jupyter notebook is designed for processing and analysing RDF (Resource Description Framework) data. The notebook focuses on loading RDF data, querying it using SPARQL, extracting features and labels, and preparing the data for further analysis or predictive modelling. This notebook is particularly useful for those working with geospatial RDF data and looking to predict elephants' geolocation. 
 
