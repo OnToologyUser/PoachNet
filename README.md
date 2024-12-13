@@ -14,7 +14,7 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 ![image](https://github.com/Naeima/PoachNet/blob/6416298db13ed86751840e0a68ded5f63cf3179c/PoachNet.png)
 
-# Query elephant Seri query
+# Query elephant Seri
 
 ![image](https://github.com/Naeima/PoachNet/blob/f59fba205a473eaeb19f24192fc45e38c5db0dd3/SelectSeri.png)
 
