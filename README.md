@@ -14,5 +14,15 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 ![image](https://github.com/Naeima/PoachNet/blob/6416298db13ed86751840e0a68ded5f63cf3179c/PoachNet.png)
 
+# Query elephant Seri query
+
+![image](https://github.com/Naeima/PoachNet/blob/f59fba205a473eaeb19f24192fc45e38c5db0dd3/SelectSeri.png)
+
+# Insert Semantic Web Rule Language (SWRL) 
+
+
+# Query poaching 
+
+
 
 # Evaluation code: [Click here](https://github.com/Naeima/PoachNet/blob/bb4af1077d988d686796be60e0680154e02c244c/Linear_Regression%2C_Polynomial_and_VAR.ipynb)
