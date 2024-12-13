@@ -13,48 +13,4 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 ![image](https://lucid.app/publicSegments/view/36bde2cd-eac4-4036-82cb-953286d75515/image.png)
 
-# Evaluation code: [Click here](https://github.com/Naeima/PoachNet/blob/e21c46c0698c39fa626096ab650d506716c1682d/Linear_Regression%2C_Polynomial_and_VAR%20(1).ipynb)
-## Requirements
-
-To run this notebook, you will need the following:
-
-- Python 3.x
-- Jupyter Notebook or Jupyter Lab environment
-- The following Python libraries:
-  - `rdflib` for handling RDF data
-  - `numpy` and `pandas` for data manipulation
-  - `tensorflow` and `sklearn` for machine learning tasks
-  - `networkx` for network analysis (if applicable)
-  - Other dependencies as required by the code (refer to the first cell of the notebook for all imports)
-
-## Setup
-
-1. **Install Python and Jupyter**: Ensure you have Python 3.x installed along with Jupyter Notebook or Jupyter Lab.
-
-2. **Clone/Download the Notebook**: Obtain a copy of the "FOO-KG (a)" notebook onto your local machine.
-
-3. **Install Required Libraries**: You can install the required libraries using pip. For example:
-
-
-   pip install rdflib numpy pandas tensorflow sklearn networkx
-   ```
-
-4. **Download RDF Data**: Ensure you have the RDF data file (e.g., "Seri.ttl") available and in the correct format as expected by the notebook.
-
-## Usage
-
-1. **Open the Notebook**: Open the "FOO-KG (a)" notebook in your Jupyter environment.
-
-2. **Run Each Cell**: Execute each cell sequentially. The initial cells import necessary libraries and define functions.
-
-3. **Load and Query RDF Data**: The notebook will load RDF data from a file and perform a SPARQL query to extract relevant features and labels.
-
-4. **Data Analysis and Modeling**: Follow the subsequent cells for data preprocessing, analysis, and potentially building machine learning models.
-   
-5. The dataset is available upon request.
-
-## Additional Notes
-
-- The notebook assumes some familiarity with RDF data, SPARQL queries, and Python programming.
-- You may need to modify the SPARQL query and data paths according to your specific RDF dataset.
-- Ensure that all dependencies are correctly installed and imported in the notebook.
+# Evaluation code: [Click here]()
