@@ -30,41 +30,120 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 
 # Semantic Web Rule Language (SWRL) Rule
+@prefix foo: <https://w3id.org/def/foo#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-```swrl
-# Rule: Determine poaching observations near oil palm plantations within a 5 km radius
-GPSObservation(?s) ^ 
-hasLatitude(?s, ?lat) ^ 
-hasLongitude(?s, ?long) ^ 
-OilPalmPlantation(?plantation) ^ 
-hasLatitude(?plantation, ?plantationLat) ^ 
-hasLongitude(?plantation, ?plantationLong) ^
-
-swrlb:subtract(?latDiff, ?lat, ?plantationLat) ^
-swrlb:subtract(?longDiff, ?long, ?plantationLong) ^
-
-swrlb:multiply(?latRadDiff, ?latDiff, 3.14159) ^ 
-swrlb:divide(?latRadDiff, ?latRadDiff, 180) ^ 
-swrlb:multiply(?longRadDiff, ?longDiff, 3.14159) ^ 
-swrlb:divide(?longRadDiff, ?longRadDiff, 180) ^ 
-
-swrlb:sin(?sinLatDiffHalf, ?latRadDiff / 2) ^ 
-swrlb:sin(?sinLongDiffHalf, ?longRadDiff / 2) ^ 
-swrlb:pow(?sinLatDiffHalfSq, ?sinLatDiffHalf, 2) ^ 
-swrlb:pow(?sinLongDiffHalfSq, ?sinLongDiffHalf, 2) ^
-
-swrlb:cos(?cosLat1, ?lat / 180 * 3.14159) ^ 
-swrlb:cos(?cosLat2, ?plantationLat / 180 * 3.14159) ^ 
-swrlb:multiply(?cosMult, ?cosLat1, ?cosLat2) ^ 
-swrlb:multiply(?sinMult, ?cosMult, ?sinLongDiffHalfSq) ^ 
-swrlb:add(?haversine, ?sinLatDiffHalfSq, ?sinMult) ^ 
-
-swrlb:sqrt(?sqrtHaversine, ?haversine) ^ 
-swrlb:asin(?asinHaversine, ?sqrtHaversine) ^ 
-swrlb:multiply(?distance, 6371 * 2, ?asinHaversine) ^ 
-
-swrlb:lessThanOrEqual(?distance, 5) -> 
-poaching(?s, true).
-
-'''
-
+### Define the SWRL Rule ###
+foo:NearPlantationRule a swrl:Imp ;
+    swrl:body (
+        [ a swrl:ClassAtom ;
+          swrl:classPredicate foo:gPSObservation ;
+          swrl:argument1 ?s
+        ]
+        [ a swrl:DatavaluedPropertyAtom ;
+          swrl:propertyPredicate pos:latitude ;
+          swrl:argument1 ?s ;
+          swrl:argument2 ?lat
+        ]
+        [ a swrl:DatavaluedPropertyAtom ;
+          swrl:propertyPredicate pos:longitude ;
+          swrl:argument1 ?s ;
+          swrl:argument2 ?long
+        ]
+        [ a swrl:ClassAtom ;
+          swrl:classPredicate foo:OilPalmPlantation ;
+          swrl:argument1 ?plantation
+        ]
+        [ a swrl:DatavaluedPropertyAtom ;
+          swrl:propertyPredicate pos:latitude ;
+          swrl:argument1 ?plantation ;
+          swrl:argument2 ?plantationLat
+        ]
+        [ a swrl:DatavaluedPropertyAtom ;
+          swrl:propertyPredicate pos:longitude ;
+          swrl:argument1 ?plantation ;
+          swrl:argument2 ?plantationLong
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:subtract ;
+          swrl:arguments (?latDiff ?lat ?plantationLat)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:subtract ;
+          swrl:arguments (?longDiff ?long ?plantationLong)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:multiply ;
+          swrl:arguments (?latRadDiff ?latDiff 3.14159)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:divide ;
+          swrl:arguments (?latRadDiff ?latRadDiff 180)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:multiply ;
+          swrl:arguments (?longRadDiff ?longDiff 3.14159)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:divide ;
+          swrl:arguments (?longRadDiff ?longRadDiff 180)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:sin ;
+          swrl:arguments (?sinLatDiffHalf (/ ?latRadDiff 2))
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:sin ;
+          swrl:arguments (?sinLongDiffHalf (/ ?longRadDiff 2))
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:pow ;
+          swrl:arguments (?sinLatDiffHalfSq ?sinLatDiffHalf 2)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:pow ;
+          swrl:arguments (?sinLongDiffHalfSq ?sinLongDiffHalf 2)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:cos ;
+          swrl:arguments (?cosLat1 (/ ?lat 180 * 3.14159))
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:cos ;
+          swrl:arguments (?cosLat2 (/ ?plantationLat 180 * 3.14159))
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:multiply ;
+          swrl:arguments (?cosMult ?cosLat1 ?cosLat2)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:add ;
+          swrl:arguments (?haversine ?sinLatDiffHalfSq ?cosMult)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:sqrt ;
+          swrl:arguments (?sqrtHaversine ?haversine)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:asin ;
+          swrl:arguments (?asinHaversine ?sqrtHaversine)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:multiply ;
+          swrl:arguments (?distance 6371 * 2 ?asinHaversine)
+        ]
+        [ a swrl:BuiltInAtom ;
+          swrl:builtin swrlb:lessThanOrEqual ;
+          swrl:arguments (?distance 5)
+        ]
+    ) ;
+    swrl:head (
+        [ a swrl:DatavaluedPropertyAtom ;
+          swrl:propertyPredicate foo:poaching ;
+          swrl:argument1 ?s ;
+          swrl:argument2 true
+        ]
+    ) .
