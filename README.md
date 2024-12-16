@@ -55,6 +55,7 @@ swrlb:multiply(?distance, 6371 * 2, ?asinHaversine) ^
 swrlb:lessThanOrEqual(?distance, 5) -> 
 poaching(?s, true).
 
+'''
 
 # SWRL expressed in SPARQL INSERT Query 
 ![image](https://github.com/Naeima/PoachNet/blob/3330ff6bf2d8a09d4d6cc85aa0235c30f6cc2f36/SWRL.png)
