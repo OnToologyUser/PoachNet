@@ -29,7 +29,6 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 # Evaluation code: [Click here](https://github.com/Naeima/PoachNet/blob/bb4af1077d988d686796be60e0680154e02c244c/Linear_Regression%2C_Polynomial_and_VAR.ipynb)
 
 
-# SWRL Rule
 # SWRL Rule: Detect Poaching Observations Near Oil Palm Plantations
 
 ```turtle
@@ -43,7 +42,7 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 foo:NearPlantationRule a swrl:Imp ;
     swrl:body (
         [ a swrl:ClassAtom ;
-          swrl:classPredicate foo:GPSObservation ;
+          swrl:classPredicate foo:gPSObservation ;
           swrl:argument1 ?s
         ]
         [ a swrl:DatavaluedPropertyAtom ;
