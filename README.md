@@ -30,6 +30,9 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 
 # SWRL Rule
+# SWRL Rule: Detect Poaching Observations Near Oil Palm Plantations
+
+```turtle
 @prefix foo: <https://w3id.org/def/foo#> .
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
