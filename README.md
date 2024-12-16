@@ -18,10 +18,9 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 ![image](https://github.com/Naeima/PoachNet/blob/f59fba205a473eaeb19f24192fc45e38c5db0dd3/SelectSeri.png)
 
-# Insert Semantic Web Rule Language (SWRL) Rule
-swrl_rule = """
+# Semantic Web Rule Language (SWRL) Rule
 
-# SWRL Rule: Identify poaching events based on GPS observations and proximity to plantations
+```swrl
 # Rule: Determine poaching observations near oil palm plantations within a 5 km radius
 GPSObservation(?s) ^ 
 hasLatitude(?s, ?lat) ^ 
