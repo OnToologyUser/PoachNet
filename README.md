@@ -22,174 +22,40 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 swrl_rule = """
 
 # SWRL Rule: Identify poaching events based on GPS observations and proximity to plantations
+# Rule: Determine poaching observations near oil palm plantations within a 5 km radius
+GPSObservation(?s) ^ 
+hasLatitude(?s, ?lat) ^ 
+hasLongitude(?s, ?long) ^ 
+OilPalmPlantation(?plantation) ^ 
+hasLatitude(?plantation, ?plantationLat) ^ 
+hasLongitude(?plantation, ?plantationLong) ^
+
+swrlb:subtract(?latDiff, ?lat, ?plantationLat) ^
+swrlb:subtract(?longDiff, ?long, ?plantationLong) ^
+
+swrlb:multiply(?latRadDiff, ?latDiff, 3.14159) ^ 
+swrlb:divide(?latRadDiff, ?latRadDiff, 180) ^ 
+swrlb:multiply(?longRadDiff, ?longDiff, 3.14159) ^ 
+swrlb:divide(?longRadDiff, ?longRadDiff, 180) ^ 
+
+swrlb:sin(?sinLatDiffHalf, ?latRadDiff / 2) ^ 
+swrlb:sin(?sinLongDiffHalf, ?longRadDiff / 2) ^ 
+swrlb:pow(?sinLatDiffHalfSq, ?sinLatDiffHalf, 2) ^ 
+swrlb:pow(?sinLongDiffHalfSq, ?sinLongDiffHalf, 2) ^
+
+swrlb:cos(?cosLat1, ?lat / 180 * 3.14159) ^ 
+swrlb:cos(?cosLat2, ?plantationLat / 180 * 3.14159) ^ 
+swrlb:multiply(?cosMult, ?cosLat1, ?cosLat2) ^ 
+swrlb:multiply(?sinMult, ?cosMult, ?sinLongDiffHalfSq) ^ 
+swrlb:add(?haversine, ?sinLatDiffHalfSq, ?sinMult) ^ 
+
+swrlb:sqrt(?sqrtHaversine, ?haversine) ^ 
+swrlb:asin(?asinHaversine, ?sqrtHaversine) ^ 
+swrlb:multiply(?distance, 6371 * 2, ?asinHaversine) ^ 
+
+swrlb:lessThanOrEqual(?distance, 5) -> 
+poaching(?s, true).
 
-@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
-@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
-
-<https://w3id.org/def/foo#nearPlantationRule> a swrl:Imp ;
-
-    swrl:body (
-
-        [ a swrl:AtomList ;
-
-          rdf:first [ 
-
-              a swrl:ClassAtom ; 
-
-              swrl:classPredicate <https://w3id.org/def/foo#gPSObservation> ; 
-
-              swrl:argument1 ?s 
-
-          ] ;
-
-          rdf:rest [ 
-
-              rdf:first [ 
-
-                  a swrl:DatavaluedPropertyAtom ; 
-
-                  swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#latitude> ; 
-
-                  swrl:argument1 ?s ; 
-
-                  swrl:argument2 ?lat 
-              ] ;
-
-              rdf:rest [ 
-
-                  rdf:first [ 
-
-                      a swrl:DatavaluedPropertyAtom ; 
-
-                      swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#longitude> ; 
-
-                      swrl:argument1 ?s ; 
-
-                      swrl:argument2 ?long 
-
-                  ] ;
-
-                  rdf:rest [ 
-
-                      rdf:first [ 
-
-                          a swrl:ClassAtom ; 
-
-                          swrl:classPredicate <https://w3id.org/def/foo#OilPalmPlantation> ; 
-
-                          swrl:argument1 ?plantation 
-
-                      ] ;
-
-                      rdf:rest [ 
-
-                          rdf:first [ 
-
-                              a swrl:DatavaluedPropertyAtom ; 
-
-                              swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#latitude> ; 
-
-                              swrl:argument1 ?plantation ; 
-
-                              swrl:argument2 ?plantationLat 
-
-                          ] ;
-
-                          rdf:rest [ 
-
-                              rdf:first [ 
-
-                                  a swrl:DatavaluedPropertyAtom ; 
-
-                                  swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#longitude> ; 
-
-                                  swrl:argument1 ?plantation ; 
-
-                                  swrl:argument2 ?plantationLong 
-
-                              ] ;
-
-                              rdf:rest [ 
-
-                                  rdf:first [ 
-
-                                      a swrl:BuiltInAtom ; 
-
-                                      swrl:builtin swrlb:subtract ; 
-
-                                      swrl:arguments (?latDiff ?lat ?plantationLat) 
-
-                                  ] ;
-
-                                  rdf:rest [ 
-
-                                      rdf:first [ 
-
-                                          a swrl:BuiltInAtom ; 
-
-                                          swrl:builtin swrlb:subtract ; 
-
-                                          swrl:arguments (?longDiff ?long ?plantationLong) 
-
-                                      ] ;
-
-                                      rdf:rest [ 
-
-                                          rdf:first [ 
-
-                                              a swrl:BuiltInAtom ; 
-
-                                              swrl:builtin swrlb:lessThanOrEqual ; 
-
-                                              swrl:arguments (?distance 5) 
-
-                                          ] ;
-
-                                          rdf:rest rdf:nil
-
-                                      ]
-
-                                  ]
-
-                              ]
-
-                          ]
-
-                      ]
-
-                  ]
-
-              ]
-
-          ]
-
-        ]
-
-    ) ;
-
-    swrl:head (
-
-        [ a swrl:AtomList ;
-
-          rdf:first [ 
-
-              a swrl:DatavaluedPropertyAtom ; 
-
-              swrl:propertyPredicate <https://w3id.org/def/foo#poaching> ; 
-
-              swrl:argument1 ?s ; 
-
-              swrl:argument2 true 
-
-          ] ;
-
-          rdf:rest rdf:nil
-
-        ]
-
-    ) 
-
-"""
 
 # SWRL expressed in SPARQL INSERT Query 
 ![image](https://github.com/Naeima/PoachNet/blob/3330ff6bf2d8a09d4d6cc85aa0235c30f6cc2f36/SWRL.png)
