@@ -18,7 +18,180 @@ This Jupyter notebook is designed for processing and analysing RDF (Resource Des
 
 ![image](https://github.com/Naeima/PoachNet/blob/f59fba205a473eaeb19f24192fc45e38c5db0dd3/SelectSeri.png)
 
-# Insert Semantic Web Rule Language (SWRL) 
+# Insert Semantic Web Rule Language (SWRL) Rule
+swrl_rule = """
+
+# SWRL Rule: Identify poaching events based on GPS observations and proximity to plantations
+
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+
+<https://w3id.org/def/foo#nearPlantationRule> a swrl:Imp ;
+
+    swrl:body (
+
+        [ a swrl:AtomList ;
+
+          rdf:first [ 
+
+              a swrl:ClassAtom ; 
+
+              swrl:classPredicate <https://w3id.org/def/foo#gPSObservation> ; 
+
+              swrl:argument1 ?s 
+
+          ] ;
+
+          rdf:rest [ 
+
+              rdf:first [ 
+
+                  a swrl:DatavaluedPropertyAtom ; 
+
+                  swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#latitude> ; 
+
+                  swrl:argument1 ?s ; 
+
+                  swrl:argument2 ?lat 
+              ] ;
+
+              rdf:rest [ 
+
+                  rdf:first [ 
+
+                      a swrl:DatavaluedPropertyAtom ; 
+
+                      swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#longitude> ; 
+
+                      swrl:argument1 ?s ; 
+
+                      swrl:argument2 ?long 
+
+                  ] ;
+
+                  rdf:rest [ 
+
+                      rdf:first [ 
+
+                          a swrl:ClassAtom ; 
+
+                          swrl:classPredicate <https://w3id.org/def/foo#OilPalmPlantation> ; 
+
+                          swrl:argument1 ?plantation 
+
+                      ] ;
+
+                      rdf:rest [ 
+
+                          rdf:first [ 
+
+                              a swrl:DatavaluedPropertyAtom ; 
+
+                              swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#latitude> ; 
+
+                              swrl:argument1 ?plantation ; 
+
+                              swrl:argument2 ?plantationLat 
+
+                          ] ;
+
+                          rdf:rest [ 
+
+                              rdf:first [ 
+
+                                  a swrl:DatavaluedPropertyAtom ; 
+
+                                  swrl:propertyPredicate <http://www.w3.org/2003/01/geo/wgs84_pos#longitude> ; 
+
+                                  swrl:argument1 ?plantation ; 
+
+                                  swrl:argument2 ?plantationLong 
+
+                              ] ;
+
+                              rdf:rest [ 
+
+                                  rdf:first [ 
+
+                                      a swrl:BuiltInAtom ; 
+
+                                      swrl:builtin swrlb:subtract ; 
+
+                                      swrl:arguments (?latDiff ?lat ?plantationLat) 
+
+                                  ] ;
+
+                                  rdf:rest [ 
+
+                                      rdf:first [ 
+
+                                          a swrl:BuiltInAtom ; 
+
+                                          swrl:builtin swrlb:subtract ; 
+
+                                          swrl:arguments (?longDiff ?long ?plantationLong) 
+
+                                      ] ;
+
+                                      rdf:rest [ 
+
+                                          rdf:first [ 
+
+                                              a swrl:BuiltInAtom ; 
+
+                                              swrl:builtin swrlb:lessThanOrEqual ; 
+
+                                              swrl:arguments (?distance 5) 
+
+                                          ] ;
+
+                                          rdf:rest rdf:nil
+
+                                      ]
+
+                                  ]
+
+                              ]
+
+                          ]
+
+                      ]
+
+                  ]
+
+              ]
+
+          ]
+
+        ]
+
+    ) ;
+
+    swrl:head (
+
+        [ a swrl:AtomList ;
+
+          rdf:first [ 
+
+              a swrl:DatavaluedPropertyAtom ; 
+
+              swrl:propertyPredicate <https://w3id.org/def/foo#poaching> ; 
+
+              swrl:argument1 ?s ; 
+
+              swrl:argument2 true 
+
+          ] ;
+
+          rdf:rest rdf:nil
+
+        ]
+
+    ) 
+
+"""
+
+# SWRL expressed in SPARQL INSERT Query 
 ![image](https://github.com/Naeima/PoachNet/blob/3330ff6bf2d8a09d4d6cc85aa0235c30f6cc2f36/SWRL.png)
 
 # Query poaching 
